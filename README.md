@@ -2,15 +2,15 @@
 This script automates the process of running an Nmap vulnerability scan on a target IP address. It obtains open ports and potential vulnerabilities on a system by using Nmap’s built-in scripts, making it a valuable tool for network audits and vulnerability assessments. The script also allows users to save the scan report in a text file.
 
 ## Key Features
--Automates vulnerability scanning on specified target IP
--Utilizes Nmap’s ‘-sV’ option to detect service versions and ‘–script vuln’ to check for known vulnerabilities
--Allows users to save results into a file with time-stamped information
+- Automates vulnerability scanning on specified target IP
+- Utilizes Nmap’s ‘-sV’ option to detect service versions and ‘–script vuln’ to check for known vulnerabilities
+- Allows users to save results into a file with time-stamped information
 
 ## Installation
 
 ### System Requirements
--Python 3.9+ installed on your machine
--Nmap installed and added to the system PATH
+- Python 3.9+ installed on your machine
+- Nmap installed and added to the system PATH
 
 ### Steps:
 1. Clone repository
