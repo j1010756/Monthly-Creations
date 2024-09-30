@@ -39,11 +39,17 @@ Successful Scan!
 Scan Results: 
 
 Starting Nmap 7.91 ( https://nmap.org ) at 2024-09-30 12:41 UTC 
+
 Nmap scan report for 192.168.1.1 
-Host is up (0.013s latency). 
-PORT STATE SERVICE VERSION 
+
+Host is up (0.013s latency).
+
+PORT STATE SERVICE VERSION
+
 22/tcp open     ssh            OpenSSH 7.6p1 Ubuntu 4ubuntu0.7 (Ubuntu Linux; protocol 2.0) | vulners: 
+
 | CVE-2018-15473: 5.0 MEDIUM 
+
 |_ CVE-2020-15778: 7.8 HIGH 
 
 Nmap done: 1 IP address (1 host up) scanned in 12.45 seconds
