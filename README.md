@@ -14,22 +14,28 @@ This script automates the process of running an Nmap vulnerability scan on a tar
 
 ### Steps:
 1. Clone repository:
+
     '''git clone https://github.com/j1010756/Monthly-Creations.git'''
 
 2. Navigate to directory:
+
     '''cd Monthly-Creations'''
 
 
 3. Run script using python:
-    '''Without Saving Text File: py september_creation.py <target_ip>''' 
+   
+    '''Without Saving Text File: py september_creation.py <target_ip>'''
+   
     '''With Saving Text File: py september_creation.py <target_ip> [–save]'''
 
 ## Save Results to File
 Use –save flag to save the results to a text file:
+
 '''py september_creation.py 192.168.1.1 –save'''
 
 ## Example Usage
 Run Nmap vulnerability scan on single IP address and save results as text file:
+
 '''py september_creation.py 192.168.1.1 –save'''
  
 ## Example Output
