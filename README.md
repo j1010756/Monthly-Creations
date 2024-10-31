@@ -66,37 +66,64 @@ _[Selecting scan 2]_
 ## Example Output
 Sucessful Scan!
 
-
 Scan Results:
 
 Starting Nmap 7.95 ( https://nmap.org ) at 2024-10-30 22:08 Mountain Daylight Time
+
 Nmap scan report for 192.168.56.102
+
 Host is up (0.00088s latency).
+
 Not shown: 977 closed tcp ports (reset)
+
 PORT      STATE SERVICE
+
 21/tcp    open  ftp
+
 22/tcp    open  ssh
+
 80/tcp    open  http
+
 135/tcp   open  msrpc
+
 139/tcp   open  netbios-ssn
+
 445/tcp   open  microsoft-ds
+
 3306/tcp  open  mysql
+
 3389/tcp  open  ms-wbt-server
+
 4848/tcp  open  appserv-http
+
 5985/tcp  open  wsman
+
 7676/tcp  open  imqbrokerd
+
 8080/tcp  open  http-proxy
+
 8181/tcp  open  intermapper
+
 8383/tcp  open  m2mservices
+
 9200/tcp  open  wap-wsp
+
 49152/tcp open  unknown
+
 49153/tcp open  unknown
+
 49154/tcp open  unknown
+
 49155/tcp open  unknown
+
 49156/tcp open  unknown
+
 49157/tcp open  unknown
+
 49158/tcp open  unknown
+
 49159/tcp open  unknown
+
 MAC Address: 08:00:27:99:1C:CB (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
 
 Nmap done: 1 IP address (1 host up) scanned in 1.81 seconds
