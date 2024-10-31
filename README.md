@@ -32,32 +32,36 @@ This script automates the process of running various Nmap scans on a target IP a
 
 3. Run the script using Python:
 - Without Saving Text File: 
-  ```bash
-  py october_creation.py <target_ip>
-  ```
-- With Saving Text File: 
-  ```bash
-      py october_creation.py <target_ip> [--save]
-  ```
+    ```bash
+    py october_creation.py <target_ip>
+    ```
 
 ## Save Results to File
 Use the `--save` flag to save the results to a text file:
-```bash
-py october_creation.py 192.168.56.102 --save
-```
+  ```bash
+  py october_creation.py <target_ip> --save
+  ```
+
+## Scan Types
+When prompted, you can select from the following scan types:
+
+- Vulnerability Scan
+- TCP SYN Scan
+- Aggressive Scan
+- Ping Scan
 
 ## Example Usage
 Run Nmap TCP SYN scan on single IP address and save results as text file:
 ```bash
 py october_creation.py 192.168.56.102 --save
 ```
-Select the scan type you want to perform:
+** Select the scan type you want to perform:
 1. Vulnerability Scan
 2. TCP SYN Scan
 3. Aggressive Scan
-4. Ping Scan
+4. Ping Scan **
 
-[Selecting scan 2]
+** [Selecting scan 2] **
 
 ## Example Output
 Sucessful Scan!
@@ -96,12 +100,3 @@ PORT      STATE SERVICE
 MAC Address: 08:00:27:99:1C:CB (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
 
 Nmap done: 1 IP address (1 host up) scanned in 1.81 seconds
-
-
-## Scan Types
-When prompted, you can select from the following scan types:
-
-- Vulnerability Scan
-- TCP SYN Scan
-- Aggressive Scan
-- Ping Scan
