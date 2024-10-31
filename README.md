@@ -1,14 +1,17 @@
 # Automated Nmap Scanner
 
 ## Overview
-This script automates the process of running an Nmap vulnerability scan on a target IP address. It obtains open ports and potential vulnerabilities on a system by using Nmap’s built-in scripts, making it a valuable tool for network audits and vulnerability assessments. The script also allows users to save the scan report in a text file and choose from different types of scans.
+This script automates the process of running various Nmap scans on a target IP address, including vulnerability, TCP SYN, aggressive, and ping scans. It provides flexibility in scan options to gather a range of network information and potential vulnerabilities, making it a versatile tool for network audits and vulnerability assessments. The script also allows users to save scan reports in text files with a timestamp.
 
 ## Key Features
-- Automates vulnerability scanning on specified target IP
-- Utilizes Nmap’s `-sV` option to detect service versions and `--script vuln` to check for known vulnerabilities
-- Offers multiple scan types: Vulnerability Scan, TCP SYN Scan, Aggressive Scan, and Ping Scan
-- Allows users to save results into a file with time-stamped information
-- Includes input validation to ensure valid scan type selection
+- Automates multiple scan types on a specified target IP, including vulnerability, TCP SYN, aggressive, and ping scans
+- Utilizes Nmap’s options:
+    - -sV with --script vuln to detect service versions and known vulnerabilities
+    - -sS for a TCP SYN scan to identify open ports
+    - -A for an aggressive scan, which combines version detection, OS detection, and more
+    - -sn for a ping scan to quickly check host availability
+- Allows users to save results into a file with time-stamped information for audit and tracking purposes
+
 
 ## Installation
 
@@ -30,48 +33,69 @@ This script automates the process of running an Nmap vulnerability scan on a tar
 3. Run the script using Python:
 - Without Saving Text File: 
   ```bash
-  py september_creation.py <target_ip>
+  py october_creation.py <target_ip>
   ```
 - With Saving Text File: 
   ```bash
-      py september_creation.py <target_ip> [--save]
+      py october_creation.py <target_ip> [--save]
   ```
 
 ## Save Results to File
 Use the `--save` flag to save the results to a text file:
 ```bash
-py september_creation.py 192.168.1.1 --save
+py october_creation.py 192.168.56.102 --save
 ```
 
 ## Example Usage
-Run Nmap vulnerability scan on a single IP address and save results as a text file:
+Run Nmap TCP SYN scan on single IP address and save results as text file:
 ```bash
-py september_creation.py 192.168.1.1 --save
+py october_creation.py 192.168.56.102 --save
 ```
+Select the scan type you want to perform:
+1. Vulnerability Scan
+2. TCP SYN Scan
+3. Aggressive Scan
+4. Ping Scan
+
+[Selecting scan 2]
 
 ## Example Output
-When running the vulnerability scan on the target IP address, the output may look like this:
+Sucessful Scan!
 
-Running Nmap Vulnerability scan on 192.168.1.1
-Successful Scan! 
 
-Scan Results: 
+Scan Results:
 
-Starting Nmap 7.91 ( https://nmap.org ) at 2024-09-30 12:41 UTC 
+Starting Nmap 7.95 ( https://nmap.org ) at 2024-10-30 22:08 Mountain Daylight Time
+Nmap scan report for 192.168.56.102
+Host is up (0.00088s latency).
+Not shown: 977 closed tcp ports (reset)
+PORT      STATE SERVICE
+21/tcp    open  ftp
+22/tcp    open  ssh
+80/tcp    open  http
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+445/tcp   open  microsoft-ds
+3306/tcp  open  mysql
+3389/tcp  open  ms-wbt-server
+4848/tcp  open  appserv-http
+5985/tcp  open  wsman
+7676/tcp  open  imqbrokerd
+8080/tcp  open  http-proxy
+8181/tcp  open  intermapper
+8383/tcp  open  m2mservices
+9200/tcp  open  wap-wsp
+49152/tcp open  unknown
+49153/tcp open  unknown
+49154/tcp open  unknown
+49155/tcp open  unknown
+49156/tcp open  unknown
+49157/tcp open  unknown
+49158/tcp open  unknown
+49159/tcp open  unknown
+MAC Address: 08:00:27:99:1C:CB (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
 
-Nmap scan report for 192.168.1.1 
-
-Host is up (0.013s latency).
-
-PORT STATE SERVICE VERSION
-
-22/tcp open     ssh            OpenSSH 7.6p1 Ubuntu 4ubuntu0.7 (Ubuntu Linux; protocol 2.0) | vulners: 
-
-| CVE-2018-15473: 5.0 MEDIUM 
-
-|_ CVE-2020-15778: 7.8 HIGH 
-
-Nmap done: 1 IP address (1 host up) scanned in 12.45 seconds
+Nmap done: 1 IP address (1 host up) scanned in 1.81 seconds
 
 
 ## Scan Types
