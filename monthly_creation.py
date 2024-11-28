@@ -1,8 +1,9 @@
-# test comment for github
-# import necessary packages for processing, parsing, and date
+# import necessary packages for processing, parsing, date, and json + csv files
 import subprocess
 import argparse
 from datetime import datetime
+import json
+import csv
 
 # vulnerability scan on single ip
 def run_nmap_vuln_scan(target_ip):
@@ -19,7 +20,7 @@ def run_nmap_vuln_scan(target_ip):
         
         # return results if successful
         if results.returncode == 0:
-            print("Sucessful Scan!\n")
+            print("Successful Scan!\n")
             return results.stdout
         
         # error message if unsuccessful
@@ -47,7 +48,7 @@ def run_nmap_tcp_syn_scan(target_ip):
         
         # return results if successful
         if results.returncode == 0:
-            print("Sucessful Scan!\n")
+            print("Successful Scan!\n")
             return results.stdout
         
         # error message if unsuccessful
@@ -74,7 +75,7 @@ def run_nmap_aggressive_scan(target_ip):
         
         # return results if successful
         if results.returncode == 0:
-            print("Sucessful Scan!\n")
+            print("Successful Scan!\n")
             return results.stdout
         
         # error message if unsuccessful
@@ -101,7 +102,7 @@ def run_nmap_ping_scan(target_ip):
         
         # return results if successful
         if results.returncode == 0:
-            print("Sucessful Scan!\n")
+            print("Successful Scan!\n")
             return results.stdout
         
         # error message if unsuccessful
@@ -116,19 +117,49 @@ def run_nmap_ping_scan(target_ip):
         
      
 # save report
-def save_report(target_ip, report, scan_type):
+def save_report(target_ip, report, scan_type, file_format="txt"):
     # get current date and time
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
     # create a report header with date and time
-    report_header = f"Nmap {scan_type} Scan Report\nTarget: {target_ip}\nDate: {current_time}\n\n"
+    report_header = {
+        "scan_type": f"Nmap {scan_type} Scan",
+        "target_ip": target_ip,
+        "date": current_time,
+        "results": report
+    }
     
-    # save the scan result to a text file
-    filename = f"nmap_{scan_type}_scan_{target_ip}.txt"
-    with open(filename, 'w') as file:
-        file.write(report_header + report)
-    
-    print(f"Report saved as {filename}")
+    # save the scan result to a specified file type (txt, json, csv)
+    if file_format == "txt":
+        filename = f"nmap_{scan_type}_scan_{target_ip}.txt"
+        with open(filename, 'w') as file:
+            file.write(f"{report_header['scan_type']}\n")
+            file.write(f"Target: {report_header['target_ip']}\n")
+            file.write(f"Date: {report_header['date']}\n\n")
+            file.write(report_header['results'])
+        print(f"Report saved as {filename}")
+
+    elif file_format == "json":
+        filename = f"nmap_{scan_type}_scan_{target_ip}.json"
+        with open(filename, 'w') as file:
+            json.dump(report_header, file, indent=4)
+        print(f"Report saved as {filename}")
+
+    elif file_format == "csv":
+        filename = f"nmap_{scan_type}_scan_{target_ip}.csv"
+        with open(filename, 'w', newline='') as file:
+            csv_writer = csv.writer(file)
+            csv_writer.writerow(["Scan Type", "Target", "Date", "Results"])
+            csv_writer.writerow([
+                report_header['scan_type'], 
+                report_header['target_ip'], 
+                report_header['date'], 
+                report_header['results'].replace("\n", " | ")
+            ])
+        print(f"Report saved as {filename}")
+
+    else:
+        print("Unsupported file format. Report not saved.")
    
 # main process to run functions    
 def main():
@@ -181,9 +212,27 @@ def main():
         print("\nScan Results:\n")
         print(scan_result)
 
-        # save the report if prompted
+        # choose file type of saved report if prompted
         if args.save:
-            save_report(args.target_ip, scan_result, scan_type)
+            print("Choose a file format to save the report:")
+            print("1. TXT (Default)")
+            print("2. JSON")
+            print("3. CSV")
+
+            # validate the file format input
+            while True:
+                file_format = input("Enter your choice (1/2/3): ").strip()
+                if file_format == "1":
+                    save_report(args.target_ip, scan_result, scan_type, file_format="txt")
+                    break
+                elif file_format == "2":
+                    save_report(args.target_ip, scan_result, scan_type, file_format="json")
+                    break
+                elif file_format == "3":
+                    save_report(args.target_ip, scan_result, scan_type, file_format="csv")
+                    break
+                else:
+                    print("Invalid choice. Please select a valid file type.")
 
 if __name__ == "__main__":
     main()
