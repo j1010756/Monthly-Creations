@@ -150,9 +150,9 @@ While this tool does not provide a full and comprehensive vulnerability assessme
 
 
 ## Demonstration (Metasploitable Server):
-# TCP SYN Scan
-# Aggressive Scan
-# Ping Scan
-# Vulnerability Scan
-# JSON Export
-# CSV Export
+### TCP SYN Scan
+### Aggressive Scan
+### Ping Scan
+### Vulnerability Scan
+### JSON Export
+### CSV Export
