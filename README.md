@@ -151,8 +151,16 @@ While this tool does not provide a full and comprehensive vulnerability assessme
 
 ## Demonstration (Metasploitable Server):
 ### TCP SYN Scan
+![alt text](https://github.com/j1010756/Monthly-Creations/blob/main/demo_tcpsyn.png?raw=true)
 ### Aggressive Scan
+![alt text](https://github.com/j1010756/Monthly-Creations/blob/main/demo_aggressive1.png?raw=true)
+![alt text](https://github.com/j1010756/Monthly-Creations/blob/main/demo_aggressive2.png?raw=true)
 ### Ping Scan
+![alt text](https://github.com/j1010756/Monthly-Creations/blob/main/demo_ping.png?raw=true)
 ### Vulnerability Scan
+![alt text](https://github.com/j1010756/Monthly-Creations/blob/main/demo_vuln1.png?raw=true)
+![alt text](https://github.com/j1010756/Monthly-Creations/blob/main/demo_vuln2.png?raw=true)
 ### JSON Export
+![alt text](https://github.com/j1010756/Monthly-Creations/blob/main/demo_json.png?raw=true)
 ### CSV Export
+![alt text](https://github.com/j1010756/Monthly-Creations/blob/main/demo_csv.png?raw=true)
