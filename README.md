@@ -144,3 +144,15 @@ _Enter your choice (1/2/3):_
 _[Selecting option 3]_
 
 Report saved as nmap_TCPSYN_scan_192.168.56.101.csv
+
+## Proof of Value
+While this tool does not provide a full and comprehensive vulnerability assessment, it automates several important steps of using Nmap for network enumeration and vulnerability scanning and provides a detailed report of its findings that can be exported in a number of formats, as depicted in the demonstrations below. It can provide an excellent and quick starting point for a full vulnerability assessment, or can be used on its own to quickly identify a system’s most glaring vulnerabilities.
+
+
+## Demonstration (Metasploitable Server):
+# TCP SYN Scan
+# Aggressive Scan
+# Ping Scan
+# Vulnerability Scan
+# JSON Export
+# CSV Export
