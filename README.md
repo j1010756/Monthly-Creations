@@ -32,14 +32,14 @@ This script automates the process of running various Nmap scans on a target IP a
 
 3. Run the script using Python:
     ```bash
-    py monthly_creation.py <target_ip>
+    py automated_nmap_scanner.py <target_ip>
     ```
 
 ## Save Results to File
 Use the `--save` flag to save the results to a text, JSON, or CSV file:
 
   ```bash
-  py monthly_creation.py <target_ip> --save
+  py automated_nmap_scanner.py <target_ip> --save
   ```
 
 ## Scan Types
@@ -59,7 +59,7 @@ When prompted, you can select from the following file types to save to:
 ## Example Usage
 Run Nmap TCP SYN scan on single IP address and save results as text file:
 ```bash
-py monthly_creation.py 192.168.56.102 --save
+py automated_nmap_scanner.py 192.168.56.102 --save
 ```
 
 _Select the scan type you want to perform:_
